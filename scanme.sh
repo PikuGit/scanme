@@ -1,6 +1,8 @@
 
 #!/bin/bash
 
+#Author: Ainhoa Morales
+
 #MENU
 
 if [ $# -lt 1 ]
