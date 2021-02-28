@@ -1,4 +1,4 @@
-# scanner
-Vulnerability scan and other tools
+# scanme.sh
+scanme.sh es hace un escaneo básico del host. También tiene otras herramientas que permite crear copias de seguridad, restaurar, matar procesos o cerrar puertos.
 
-Please open it with ./[scanme.sh].
+Por favor abrid el script con: ./[scanme.sh]
