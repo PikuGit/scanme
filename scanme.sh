@@ -231,7 +231,7 @@ elif [ "$1" = "--scan" ] || [ "$1" = "-s" ]
         echo ""
     else [ "$countd" = "s" ]
         echo ""
-        echo -e "\e[5mRealizando...[0m"
+        echo -e "\e[5mRealizando...\e[0m"
         scanner > reporte-$(date +%d-%m-%Y).txt
         echo ""
         echo -e "\e[94m[OK]\e[0m Tu reporte se ha realizado correctamente"
