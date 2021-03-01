@@ -204,7 +204,7 @@ elif [ "$1" = "--scan" ] || [ "$1" = "-s" ]
     echo ""
     echo -e "\e[1m \e[96m ----CVE-2021-3156---- \e[0m \e[0m"
     echo ""
-    echo -e "Tu versión actual de sudo es: $(sudo -V | grep -e versión | cut -d " " -f3)"
+    echo -e "Tu versión actual de sudo es: $(sudo -V | head -n1 | awk '{print $3}')"
     sudoedit -s '\' `perl -e 'print "A" x 65536'` 2> error_a546454.txt
     if [ "$(cat error_a546454.txt|cut -d " " -f1)" = "usage:" ]
       then 
@@ -224,7 +224,7 @@ elif [ "$1" = "--scan" ] || [ "$1" = "-s" ]
   }
     scanner
     countd="t"
-    while [ "$countd" != "s" -a "$countd" != "n" ]
+    while [ "$countd" != "s" -a "$countd" != "n" -a "$countd" != "" ]
     do
       read -p "¿Quieres crear un reporte con toda la información recogida? (s/N) " countd
     done
@@ -232,12 +232,15 @@ elif [ "$1" = "--scan" ] || [ "$1" = "-s" ]
     if [ -z "$countd" ]
       then
         echo ""
-    else [ "$countd" = "s" ]
+    elif [ "$countd" = "s" ]
+      then
         echo ""
         echo -e "\e[5mRealizando...\e[0m"
         scanner > reporte-$(date +%d-%m-%Y).txt
         echo ""
         echo -e "\e[94m[OK]\e[0m Tu reporte se ha realizado correctamente"
+     else
+      echo""
     fi
 
 #Matar procesos
