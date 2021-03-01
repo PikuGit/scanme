@@ -228,6 +228,7 @@ elif [ "$1" = "--scan" ] || [ "$1" = "-s" ]
     do
       read -p "¿Quieres crear un reporte con toda la información recogida? (s/N) " countd
     done
+    
     if [ -z "$countd" ]
       then
         echo ""
@@ -243,6 +244,7 @@ elif [ "$1" = "--scan" ] || [ "$1" = "-s" ]
 
 elif [ "$1" = "--killPID" ] || [ "$1" = "-k" ]
   then
+  
     countdd=7
     while [ $countdd != 1 -a $countdd != 2 -a $countdd != 3 -a $countdd != 4 ]
       do
@@ -260,12 +262,14 @@ elif [ "$1" = "--killPID" ] || [ "$1" = "-k" ]
         ps -aux;
         echo "";
         echo "";
+        
         countk="t";
         while [ "$countk" != "s" -a "$countk" != "n" ]
           do
             echo ""
             read -p "¿Quieres hacer algo más? (s/n) " countk
           done;
+          
         if [ "$countk" = "s" ]
           then
             echo ""
@@ -286,12 +290,14 @@ elif [ "$1" = "--killPID" ] || [ "$1" = "-k" ]
           echo ""
           read -p "¿Quieres matar otro proceso? (s/n) " countcount
         done;
+        
         countr="t";
         while [ "$countr" != "s" -a "$countr" != "n" ]
           do
             echo ""
             read -p "¿Quieres hacer algo más? (s/n) " countr
           done;
+          
         if [ "$countr" = "s" ]
           then
             echo ""
@@ -361,12 +367,14 @@ elif [ "$1" = "--ports" ] || [ "$1" = "-p" ]
         sudo ss -tulwnp | grep LISTEN;
         echo "";
         echo "";
+        
         countk="t";
         while [ "$countk" != "s" -a "$countk" != "n" ]
           do
             echo ""
             read -p "¿Quieres hacer algo más? (s/n) " countk
           done;
+          
         if [ "$countk" = "s" ]
           then
             echo ""
@@ -380,12 +388,14 @@ elif [ "$1" = "--ports" ] || [ "$1" = "-p" ]
         read -p "Dame la IP: " IPMachine;
         sudo apt-get install -y nmap > /dev/null 2>&1;  #envio la salida a /dev/null para que no se muestre en pantalla
         sudo nmap -sC -sV -sS $IPMachine;   # escaneo los puertos
+        
         countr="t";
         while [ "$countr" != "s" -a "$countr" != "n" ]
           do
             echo ""
             read -p "¿Quieres hacer algo más? (s/n) " countr
           done;
+        
         if [ "$countr" = "s" ]
           then
             echo ""
@@ -417,6 +427,7 @@ elif [ "$1" = "--ports" ] || [ "$1" = "-p" ]
             echo ""
             read -p "¿Quieres hacer algo más? (s/n) " countr
           done;
+        
         if [ "$countr" = "s" ]
           then
             echo ""
@@ -448,6 +459,7 @@ elif [ "$1" = "--ports" ] || [ "$1" = "-p" ]
             echo ""
             read -p "¿Quieres hacer algo más? (s/n) " countr
           done;
+        
         if [ "$countr" = "s" ]
           then
             echo ""
