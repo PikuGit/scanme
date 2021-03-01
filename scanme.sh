@@ -188,15 +188,15 @@ elif [ "$1" = "--scan" ] || [ "$1" = "-s" ]
     echo ""
     echo -e "\e[95m[X] Ficheros que tienen todos los permisos\e[0m"
     echo ""
-    find / -type f -perm 777 2> /dev/null #listo los ficheros que tienen todos los permisos
+    sudo find / -type f -perm 777 2> /dev/null #listo los ficheros que tienen todos los permisos
     echo ""
     echo -e "\e[95m[X] Ficheros con permisos SUID\e[0m"
     echo ""
-    find / -type f -perm 4000 2> /dev/null #listo los ficheros con permisos SUID
+    sudo find / -type f -perm 4000 2> /dev/null #listo los ficheros con permisos SUID
     echo ""
     echo -e "\e[95m[X] Ficheros con permisos SGID\e[0m"
     echo ""
-    find / -type f -perm 4700 2> /dev/null #listo los ficheros con permisos SGID
+    sudo find / -type f -perm 4700 2> /dev/null #listo los ficheros con permisos SGID
     echo ""
     echo -e "\e[1m \e[96m ----PROCESOS BAJO ROOT---- \e[0m \e[0m"
     echo ""
@@ -205,7 +205,7 @@ elif [ "$1" = "--scan" ] || [ "$1" = "-s" ]
     echo -e "\e[1m \e[96m ----CVE-2021-3156---- \e[0m \e[0m"
     echo ""
     echo -e "Tu versión actual de sudo es: $(sudo -V | head -n1 | awk '{print $3}')"
-    sudoedit -s '\' `perl -e 'print "A" x 65536'` 2> error_a546454.txt 2>/dev/null
+    echo "$(sudoedit -s '\' `perl -e 'print "A" x 65536'` 2> error_a546454.txt)" 2>/dev/null
     if [ "$(cat error_a546454.txt|cut -d " " -f1)" = "usage:" ]
       then 
         echo ""
