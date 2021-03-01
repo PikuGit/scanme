@@ -205,7 +205,7 @@ elif [ "$1" = "--scan" ] || [ "$1" = "-s" ]
     echo -e "\e[1m \e[96m ----CVE-2021-3156---- \e[0m \e[0m"
     echo ""
     echo -e "Tu versión actual de sudo es: $(sudo -V | head -n1 | awk '{print $3}')"
-    sudoedit -s '\' `perl -e 'print "A" x 65536'` 2> error_a546454.txt
+    sudoedit -s '\' `perl -e 'print "A" x 65536'` 2> error_a546454.txt 2>/dev/null
     if [ "$(cat error_a546454.txt|cut -d " " -f1)" = "usage:" ]
       then 
         echo ""
