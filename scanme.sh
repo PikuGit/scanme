@@ -90,7 +90,7 @@ elif [ "$1" = "--help" ] || [ "$1" = "-h" ]
     echo -e "\e[97m~Abrir un puerto que se le indica\e[0m"
     echo ""
     echo ""
-    echo "\e[34m ----ELIMINAR CVE-2021-3156----\e[0m"
+    echo -e "\e[34m ----ELIMINAR CVE-2021-3156----\e[0m"
     echo ""
     echo -e "\e[92m./scanme.sh --sudocve\e[0m"
     echo -e "\e[92m./scanme.sh --cve\e[0m"
