@@ -239,6 +239,7 @@ elif [ "$1" = "--scan" ] || [ "$1" = "-s" ]
         scanner > reporte-$(date +%d-%m-%Y).txt
         echo ""
         echo -e "\e[94m[OK]\e[0m Tu reporte se ha realizado correctamente"
+        echo " Se ha guardado en: $(realpath "reporte-$(date +%Y-%m-%d).txt")" 
      else
       echo""
     fi
