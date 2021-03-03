@@ -489,5 +489,6 @@ elif [ "$1" = "--sudocve" ] || [ "$1" = "-cve" ]
 else
     echo 
     echo -e "\e[31m ERROR: argumento erróneo\e[0m"
+    ./scanme.sh
 fi
 
