@@ -116,7 +116,7 @@ elif [ "$1" = "--copia" ] || [ "$1" = "-c" ]
     if [ -d "$DF" ] || [ -f "$DF" ]
       then
         tar -czf $NAME-$(date +%Y-%m-%d).tar.gz $DF     #Se realiza la copia de seguridad
-        echo -e "\e[37m[\e[0m\e[0;34mOK\e[0m\e[37m]\e[0m \e[37mCopia de seguridad realizada corectamente\e[0m"
+        echo -e "\e[37m[\e[0m\e[0;34mOK\e[0m\e[37m]\e[0m \e[37mCopia de seguridad realizada correctamente\e[0m"
         echo ""
         echo -e "\e[37mEl archivo se ha guardado en: \e[0m"
         echo -e "\e[37m$(realpath "$NAME-$(date +%Y-%m-%d).tar.gz")\e[0m"      #Muestro la ruta absoluta de la copia de seguridad
