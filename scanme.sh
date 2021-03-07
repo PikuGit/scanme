@@ -109,19 +109,25 @@ elif [ "$1" = "--copia" ] || [ "$1" = "-c" ]
     echo ""
     read -p "Nombre de la copia de seguridad: " NAME
     echo ""
-
+    
+    echo ""
+    UBICACIONCOP = "."
+    read -p "¿Dónde quieres guardar la copia?: " UBICACIONCOP
+    echo ""
+    
     read -p "Dame el directorio o el fichero al que le quieres realizar la copia de seguridad: " DF
     echo ""
 
-    if [ -d "$DF" ] || [ -f "$DF" ]
+    if [ -d "$DF" ] || [ -f "$DF" ] || [-d "UBICACIONCOP"]
       then
         tar -czf $NAME-$(date +%Y-%m-%d).tar.gz $DF     #Se realiza la copia de seguridad
         echo -e "\e[37m[\e[0m\e[0;34mOK\e[0m\e[37m]\e[0m \e[37mCopia de seguridad realizada correctamente\e[0m"
         echo ""
         echo -e "\e[37mEl archivo se ha guardado en: \e[0m"
+        mv $NAME-$(date +%Y-%m-%d).tar.gz UBICACIONCOP\$NAME-$(date +%Y-%m-%d).tar.gz
         echo -e "\e[37m$(realpath "$NAME-$(date +%Y-%m-%d).tar.gz")\e[0m"      #Muestro la ruta absoluta de la copia de seguridad
-    else
-      echo -e "\e[37m[\e[0m\e[31mX\e[0m\e[37m]\e[0m \e[37mERROR: No existe ese archivo o directorio\e[0m"
+      else
+        echo -e "\e[37m[\e[0m\e[31mX\e[0m\e[37m]\e[0m \e[37mERROR: No existe ese archivo o directorio\e[0m"
     fi
 
 #Restaura
